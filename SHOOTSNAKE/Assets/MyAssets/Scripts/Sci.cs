@@ -9,8 +9,8 @@ public class Enemy : MonoBehaviour
     private Vector2 direction;       // dirección actual
 
     // límites del mapa (ajusta según tu escenario)
-    private float minX = -10f, maxX = 10f;
-    private float minY = -5f, maxY = 5f;
+    private float minX = -10.27f, maxX = 10.1f;
+    private float minY = -4.6f, maxY = 4.386f;
 
     void Start()
     {

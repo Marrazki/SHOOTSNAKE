@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
+    public AppleGenerator appleGenerator;
     // Contador de puntuacion del jugador
     public int score = 0;
 
@@ -20,6 +21,7 @@ public class Score : MonoBehaviour
             Debug.Log(scoreTexto);
             // Destruye la manzana recogida
             Destroy(other.gameObject);
+            appleGenerator.GenerateApple();
         }
     }
 }
