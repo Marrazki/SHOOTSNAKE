@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -38,19 +39,25 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Si lo golpea un láser → muere y da puntos
-        if (other.CompareTag("Laser"))
-        {
-            GameManager.Instance.AddScore(3);
-            Destroy(other.gameObject);
-            Destroy(gameObject);
-        }
+        
 
         // Si toca al jugador → el jugador muere
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.GameOver();  // finaliza la partida
             Debug.Log("El jugador murió al ser tocado por un enemigo");
+           
+
+
+            Score scoreScript = Object.FindFirstObjectByType<Score>();
+            if (scoreScript != null)
+            {
+                scoreScript.SaveFinalScore();
+            }
+
+            // Ir a la escena de GameOver
+            SceneManager.LoadScene("MenuMorir");
         }
     }
-}
+    }
+

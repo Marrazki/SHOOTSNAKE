@@ -1,27 +1,41 @@
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro;
 
 public class Score : MonoBehaviour
 {
     public AppleGenerator appleGenerator;
-    // Contador de puntuacion del jugador
     public int score = 0;
+    public TMP_Text scoreText;
 
-    
+    public static int finalScore; // <- esta guarda el score entre escenas
+
+    private void Start()
+    {
+        UpdateScoreUI();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Comprueba si el objeto tocado tiene la Tag "Apple"
         if (other.CompareTag("Apple"))
         {
-            // Suma un punto
             score++;
-
-            // Muestra mensaje en la consola
-            string scoreTexto = score.ToString();
-            Debug.Log(scoreTexto);
-            // Destruye la manzana recogida
+            UpdateScoreUI();
             Destroy(other.gameObject);
             appleGenerator.GenerateApple();
         }
+    }
+
+    private void UpdateScoreUI()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
+    }
+
+    // 👉 Llamar a esto cuando el jugador muere
+    public void SaveFinalScore()
+    {
+        finalScore = score;
     }
 }

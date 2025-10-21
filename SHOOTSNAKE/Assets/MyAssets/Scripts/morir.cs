@@ -1,25 +1,24 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class morir : MonoBehaviour
 {
- 
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-       
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "PARED")
+        if (collision.gameObject.CompareTag("PARED"))
         {
-            Destroy(this.gameObject);
+            GameManager.Instance.GameOver();
             Debug.Log("Has perdido");
+
+            // Guardar puntuación final con el nuevo método
+            Score scoreScript = FindFirstObjectByType<Score>();
+            if (scoreScript != null)
+            {
+                scoreScript.SaveFinalScore();
+            }
+
+            // Ir a la escena GameOver
+            SceneManager.LoadScene("MenuMorir");
         }
-       
     }
 }
