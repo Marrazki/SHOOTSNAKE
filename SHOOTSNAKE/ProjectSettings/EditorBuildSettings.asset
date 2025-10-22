@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/MyAssets/Scenes/Menu.unity
     guid: bbf7c0e7d2e11c14399a3927133eb3de
   - enabled: 1
-    path: Assets/MyAssets/Scenes/Shootnake.unity
+    path: Assets/MyAssets/Scenes/shootnake.unity
     guid: 68fcd13d3d3e5364d905a2943c1b6f3a
   - enabled: 1
     path: Assets/MyAssets/Scenes/MenuMorir.unity

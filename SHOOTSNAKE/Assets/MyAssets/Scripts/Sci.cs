@@ -62,20 +62,3 @@ public class Enemy : MonoBehaviour
 }
 
 
-
-public class Boton : MonoBehaviour
-{
-    // Este método se ejecuta cuando haces clic en el objeto (si tiene Collider)
-    public void OnMouseDown()
-    {
-        .onClick.AddListener(PlayGame);
-        destruir();
-    }
-
-    public void destruir()
-    {
-        // Destruir el enemigo (este mismo objeto)
-        Destroy(gameObject);
-        Debug.Log("Enemigo eliminado con clic!");
-    }
-}
