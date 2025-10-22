@@ -284,7 +284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ea1bf4008a7974696f125322d2348f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
+  playButton: {fileID: 1741163024}
+  quitButton: {fileID: 1098638119}
 --- !u!4 &781421291
 Transform:
   m_ObjectHideFlags: 0
@@ -313,7 +314,7 @@ GameObject:
   - component: {fileID: 1098638120}
   - component: {fileID: 1098638119}
   m_Layer: 5
-  m_Name: Boton (1)
+  m_Name: BotonSalir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -901,7 +902,7 @@ GameObject:
   - component: {fileID: 1741163022}
   - component: {fileID: 1741163024}
   m_Layer: 5
-  m_Name: Boton
+  m_Name: BotonJugar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -3,29 +3,31 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-    public AppleGenerator appleGenerator;
-    public int score = 0;
-    public TMP_Text scoreText;
+    public AppleGenerator appleGenerator;   // Generador de manzanas
+    public int score = 0;                   // Contador de puntuación durante la partida
+    public TMP_Text scoreText;              // Texto en pantalla mientras juegas
 
-    public static int finalScore; // <- esta guarda el score entre escenas
+    public static int finalScore;           //  Puntuación guardada entre escenas
 
-    private void Start()
-    {
-        UpdateScoreUI();
-    }
+    
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Apple"))
         {
             score++;
+            finalScore++;
             UpdateScoreUI();
+            Debug.Log("Puntuación: " + score);
+            Debug.Log("Puntuación final: " + finalScore);
+
+            // Destruir la manzana y generar otra
             Destroy(other.gameObject);
             appleGenerator.GenerateApple();
         }
     }
 
-    private void UpdateScoreUI()
+    public void UpdateScoreUI()
     {
         if (scoreText != null)
         {
@@ -33,9 +35,10 @@ public class Score : MonoBehaviour
         }
     }
 
-    // 👉 Llamar a esto cuando el jugador muere
+    //  Este método se llama desde morir.cs antes de cargar MenuMorir
     public void SaveFinalScore()
     {
-        finalScore = score;
+       
+        Debug.Log(finalScore);
     }
 }

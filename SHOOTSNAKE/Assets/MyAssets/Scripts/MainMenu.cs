@@ -15,7 +15,13 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Shootnake"); 
+        
+    
+        Time.timeScale = 1f; // por si acaso estaba pausado
+        SceneManager.LoadScene("Shootnake");
+    
+
+     
     }
 
     public void QuitGame()

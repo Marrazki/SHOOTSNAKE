@@ -6,7 +6,7 @@ public class Movimiento : MonoBehaviour
     
     public float velocidad = 5f;
     public int direccion = 3;
-    public int puntuacion = 0;
+   
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W)) 
@@ -42,12 +42,7 @@ public class Movimiento : MonoBehaviour
             transform.Translate(Vector2.right * velocidad * Time.deltaTime);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Destroy(collision.gameObject);
-        puntuacion++;
-        
-    }
+   
 
     
 
