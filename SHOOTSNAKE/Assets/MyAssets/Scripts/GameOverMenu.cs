@@ -13,7 +13,7 @@ public class GameOverMenu : MonoBehaviour
     {
         finalScore = Score.finalScore;
         // Mostrar la puntuación final guardada
-        finalScoreText.text = "Manzanitas comidas o bichos matada: " + finalScore;
+        finalScoreText.text = "FINAL SCORE: " + finalScore;
         okButton.onClick.AddListener(ReturnToMenu);
     }
 
