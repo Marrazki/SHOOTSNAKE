@@ -30,7 +30,7 @@ public class LaserShooter : MonoBehaviour
     public int flashCount = 3;
 
     [Header("Interfaz")]
-    public TMP_Text ammoText; // arrastra aquí el texto TMP para mostrar la munición
+    public TMP_Text ammoText; // para mostrar la munición
 
     private float nextFireTime = 0f;
     private LineRenderer lr;
@@ -110,7 +110,7 @@ public class LaserShooter : MonoBehaviour
         lr.enabled = false;
     }
 
-    // ===== Feedback =====
+    // Feedback
     public void FlashNoAmmo()
     {
         if (playerSprite != null) StartCoroutine(FlashColor(noAmmoColor));
@@ -133,7 +133,7 @@ public class LaserShooter : MonoBehaviour
         }
     }
 
-    // ===== UI =====
+    // UI
     public void UpdateAmmoUI()
     {
         if (ammoText != null)

@@ -9,12 +9,12 @@ public class Enemy : MonoBehaviour
 
     private Vector2 direction;
 
-    // límites del mapa (ajusta según tu escenario)
+    // límites del mapa
     private float minX = -10.27f, maxX = 10.1f;
     private float minY = -4.6f, maxY = 4.386f;
 
     [Header("Spawn al morir")]
-    public GameObject enemyPrefab;      // el prefab del enemigo (arrástralo en el inspector)
+    public GameObject enemyPrefab;      // el prefab del enemigo
     public bool respawnOnDeath = true;  // activar o no el respawn
     public float safetyMultiplier = 5f; // distancia mínima = tamaño del jugador × este valor
 
@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Si toca al jugador → game over
+        // Si toca al jugador este muere
         if (other.CompareTag("Player"))
         {
             GameManager.Instance.GameOver();
@@ -60,19 +60,17 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    // --- método llamado al matar al enemigo ---
+    // Método que se llama al matar al enemigo
     public void Kill()
     {
      
-       
-
-        // Crear un nuevo enemigo lejos del jugador y fuera de su campo peligroso
+        // Crear un nuevo enemigo lejos del jugador y fuera de su zona
         if (respawnOnDeath && enemyPrefab != null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                // tamaño del jugador (radio de seguridad)
+                // tamaño del jugador (area de seguridad)
                 float playerSize = 1f;
                 Collider2D col = player.GetComponent<Collider2D>();
                 if (col != null)
@@ -81,7 +79,7 @@ public class Enemy : MonoBehaviour
                 float minSafeDistance = playerSize * safetyMultiplier;
 
                 // dirección de mirada del jugador (basada en su escala local)
-                float lookDir = Mathf.Sign(player.transform.localScale.x); // +1 derecha, -1 izquierda
+                float lookDir = Mathf.Sign(player.transform.localScale.x); // +1 derecha  -1 izquierda
 
                 Vector3 spawnPos;
                 int intentos = 0;

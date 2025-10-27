@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SnakeTailSimple : MonoBehaviour
 {
-    public Transform head; // La cabeza del snake
+    public Transform head; // Cabeza del snake
     public GameObject tailPrefab; // Prefab del bloque de cola
     public int tailLength = 4; // Cantidad de bloques de cola
     private List<Transform> tail = new List<Transform>();

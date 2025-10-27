@@ -17,13 +17,13 @@ public class Score : MonoBehaviour
             finalScore++;
             UpdateScoreUI();
 
-            // --- Recargar munición o parpadeo amarillo ---
+            // Recargar munición o parpadeo amarillo
             var laser = LaserShooter.Instance;
             if (laser != null)
             {
                 if (laser.currentAmmo >= laser.maxAmmo)
                 {
-                    laser.FlashMaxAmmo(); // ya estás lleno → amarillo
+                    laser.FlashMaxAmmo(); // Ya estás lleno osea que amarillo
                 }
                 else
                 {

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
 
     [Header("Referencias UI")]
-    public GameObject gameOverUI; // asignar en el Inspector (canvas)
+    public GameObject gameOverUI;
 
     void Awake()
     {
@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
             gameOverUI.SetActive(true);
         }
 
-        // Pausa el juego
         Time.timeScale = 0f;
     }
 
