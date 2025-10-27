@@ -105,6 +105,7 @@ MonoBehaviour:
   speed: 3
   enemyPrefab: {fileID: 1286568634405475612}
   respawnOnDeath: 1
+  safetyMultiplier: 2
 --- !u!61 &4233761456228891388
 BoxCollider2D:
   m_ObjectHideFlags: 0
